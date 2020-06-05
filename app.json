@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/video/video",
+    "pages/login/login",
     "pages/personal/personal",
-    "pages/login/login"
+    "pages/index/index",
+    "pages/video/video"
   ],
   "window": {
     "navigationBarBackgroundColor": "#d43c33",
@@ -11,7 +11,8 @@
     "navigationBarTitleText": "硅谷音乐"
   },
   "tabBar": {
-    "position": "bottom",
+    "color":"#333",
+    "selectedColor":"#d43c33",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -32,5 +33,6 @@
         "selectedIconPath": "/static/images/tabs/tab-my-current.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap69.json"
 }

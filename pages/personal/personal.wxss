@@ -105,6 +105,7 @@
 
 /*TODO 个人中心功能部分 */
 .cover-container {
+  margin-top: -150rpx;
   padding: 0 30rpx;
   position: relative;
   background: #f5f5f5;
@@ -149,6 +150,7 @@
 .personalContainer {
   background-color: #fff;
   margin-top: 20rpx;
+  /* padding: ; */
 }
 
 /* 最近播放 */

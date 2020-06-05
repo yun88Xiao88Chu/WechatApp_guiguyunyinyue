@@ -51,9 +51,11 @@
      </view>
      <!-- 功能列表 -->
      <view class="personalContent">
-        <view class="recentPlayContainer">
-            <text>最近播放</text>
-        </view>
+        <text>最近播放</text>
+        <scroll-view >
+             
+        </scroll-view>
+        
         <view class="cardList">
            <view class="card-item">
              <text class="title" >我的音乐</text>
