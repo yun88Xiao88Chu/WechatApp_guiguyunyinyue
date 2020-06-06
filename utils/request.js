@@ -1,4 +1,4 @@
-//封装发送请求的函数
+// 封装发送请求的函数
 /*
 * 封装核心思想
 *   1. 封装的目的： 实现复用，简化代码
@@ -13,23 +13,34 @@
 *     3) 谁使用组件，谁通过标签属性将数据动态导入到组件内部的props对象中
 *
 * */
-import config from './config.js'
-
-export default (url,data={},method='GET') => {
-  return new Promise((resolve,reject)=>{
+import config from './config'
+export default (url, data={},method='GET') => {
+  return new Promise((resolve, reject) => {
+    // 发送请求
     wx.request({
       url: config.host + url,
-      // url:config.mobileHost + url,
+      // url: config.mobileHost + url,
       data,
       method,
-      success:(res)=>{
-        // console.log(res);
-        //更新data中bannerList的数据
+      header: {
+        cookie: (wx.getStorageSync('cookie') || []).toString()
+      },
+      success: (res) => {
+        if(data.isLogin){
+          // 登录请求
+          console.log(res.cookies);
+          wx.setStorage({
+            key: 'cookie',
+            data: res.cookies
+          })
+        }
+        
         resolve(res.data)
       },
-      fail:(error)=>{
+      fail: (error) => {
+        console.log('请求失败', error);
         reject(error)
       }
-    })     
+    })
   })
 }

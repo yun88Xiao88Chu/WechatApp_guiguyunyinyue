@@ -5,9 +5,9 @@
      <!-- 头像背景 -->
      <image class="bg" src="/static/images/personal/bgImg2.jpg"></image>
      <!-- 用户信息 -->
-     <view class="user-info-box" >
-        <image class="portrait" src="/static/images/personal/missing-face.png"></image>
-        <text class="username" >游客</text>
+     <view class="user-info-box" bindtap="toLogin">
+        <image class="portrait" src='{{userInfo.avatarUrl?userInfo.avatarUrl:"/static/images/personal/missing-face.png"}}'></image>
+        <text class="username" >{{userInfo.nickname?userInfo.nickname:"游客"}}</text>
      </view>
      <!-- 会员卡片 -->
      <view class="vip-card-box">
@@ -27,7 +27,13 @@
 
 
   <!-- 个人中心功能部分 -->
-  <view class="cover-container">
+  <view 
+      class="cover-container"
+      bindtouchstart="handleTouchStart"
+      bindtouchmove="handleTouchMove"
+      bindtouchend="handleTouchEnd"
+      style="transform: {{coverTransform}}; transition: {{coverTransition}}"
+  >
      <!-- 顶部图片 -->
      <image class="arc" src="/static/images/personal/arc.png"></image>
      <!-- 导航 -->
@@ -49,13 +55,17 @@
          <text >个性装扮</text>
        </view>
      </view>
+
      <!-- 功能列表 -->
      <view class="personalContent">
-        <text>最近播放</text>
-        <scroll-view >
-             
+        <text class="title">最近播放</text>
+        <view wx:if="{{!recentPlayList.length}}">暂时没有播放记录</view>
+        <scroll-view wx:else class="scrollView" enable-flex scroll-x>
+            <view class="scrollItem" wx:for="{{recentPlayList}}" wx:key="id">
+               <image src="{{item.song.al.picUrl}}"></image>
+            </view> 
         </scroll-view>
-        
+
         <view class="cardList">
            <view class="card-item">
              <text class="title" >我的音乐</text>

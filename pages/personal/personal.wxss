@@ -80,11 +80,13 @@
   color: #36343c;
   background: #f9e6af;
   border-radius: 20rpx;
+  z-index: 1;
 }
 
 /* 会员卡片标题 */
 .vip-card-box .tit {
   font-size: 22rpx;
+  color: #f7d680;
   margin-bottom: 28rpx;
 }
 .vip-card-box .tit .iconfont {
@@ -109,7 +111,7 @@
   padding: 0 30rpx;
   position: relative;
   background: #f5f5f5;
-  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
 }
 
 .cover-container .arc {
@@ -131,6 +133,7 @@
 
 .nav-section .nav-item {
   width: 25%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -147,13 +150,26 @@
 }
 
 /* 功能列表 */
-.personalContainer {
-  background-color: #fff;
+.personalContent {
+  background: #fff;
   margin-top: 20rpx;
-  /* padding: ; */
+  padding: 10rpx;
 }
 
 /* 最近播放 */
+.personalContent .title {
+  font-size: 26rpx;
+}
+.scrollView {
+  display: flex;
+  height: 160rpx;
+}
+.scrollView image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
 
 
 .cardList {
