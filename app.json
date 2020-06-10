@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/video/video",
-    "pages/personal/personal",
-    "pages/login/login",   
-    "pages/index/index"
+    "pages/login/login",
+    "pages/personal/personal"
   ],
   "window": {
     "navigationBarBackgroundColor": "#d43c33",
@@ -11,8 +11,8 @@
     "navigationBarTitleText": "硅谷音乐"
   },
   "tabBar": {
-    "color":"#333",
-    "selectedColor":"#d43c33",
+    "color": "#333",
+    "selectedColor": "#d43c33",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -34,5 +34,21 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap69.json"
+  "sitemapLocation": "sitemap69.json",
+  "requiredBackgroundModes": ["audio"],
+  "subpackages":[
+    {
+      "root":"songs",
+      "pages": [
+        "pages/recommendSong/recommendSong",
+        "pages/song/song"
+      ],
+      "name":"songPackage"
+    }
+  ],
+  "preloadRule":{
+    "pages/index/index":{
+      "packages":["songPackage"]
+    }
+  }
 }

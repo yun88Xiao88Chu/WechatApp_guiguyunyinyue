@@ -1,0 +1,136 @@
+/* pages/song/song.wxss */
+/*! 播放页面容器 */
+.songContainer {
+  width: 100%;
+  height: 100%;
+  background:rgba(0, 0, 0, .5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/** 底座 */
+.keng {
+  position: relative;
+  z-index: 100;
+  width: 60rpx;
+  height: 60rpx;
+  background: #fff;
+  border-radius: 50%;
+  margin: 10rpx 0;
+}
+/** 摇杆 */
+.needle {
+  position: relative;
+  z-index: 99;
+  left: 60rpx;
+  top: -40rpx;
+  width: 192rpx;
+  height: 274rpx;
+  /* border: 1rpx solid red; */
+  transform-origin: 40rpx 0;
+  transform: rotate(-20deg);
+}
+
+.needle.needleRotate {
+  transform: rotate(0deg);
+}
+
+/* 磁盘 */
+.discContainer {
+  position: relative;
+  top: -170rpx;
+  z-index: 1;
+  width: 598rpx;
+  height: 598rpx;
+}
+.discContainer.discAnimation {
+  animation: discAni 4s linear infinite;
+  animation-delay: 1s;
+}
+@keyframes discAni {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.disc {
+  width: 100%;
+  height: 100%;
+}
+
+.musicImg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 370rpx;
+  height: 370rpx;
+  border-radius: 50%;
+}
+
+/* musicControl */
+.musicControl {
+  position: absolute;
+  bottom: 40rpx;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1rpx solid #fff;
+}
+
+.musicControl text {
+  width: 20%;
+  text-align: center;
+  font-size: 50rpx;
+  color: #fff;
+  height: 120rpx;
+  line-height: 120rpx;
+}
+.musicControl text.big {
+  font-size: 80rpx;
+}
+
+/* 进度条控制区 */
+.audioControl {
+  position: absolute;
+  bottom: 200rpx;
+  width: 640rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+}
+
+/* 进度条控制父容器 */
+.barControl {
+  position: relative;
+  width: 450rpx;
+  height: 4rpx;
+  background: rgba(0, 0, 0, .4);
+  margin: auto;
+}
+
+/* 左侧进度条 */
+.current-time-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 4rpx;
+  background: red;
+}
+/* 进度条右侧小圆球 */
+.ball {
+  position: absolute;
+  right: -12rpx;
+  top: -4rpx;
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: #fff;
+}

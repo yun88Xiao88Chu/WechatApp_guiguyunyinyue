@@ -1,0 +1,24 @@
+{
+  "name": "yunyinyue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yun88Xiao88Chu/WechatApp_guiguyunyinyue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yun88Xiao88Chu/WechatApp_guiguyunyinyue/issues"
+  },
+  "homepage": "https://github.com/yun88Xiao88Chu/WechatApp_guiguyunyinyue#readme",
+  "dependencies": {
+    "moment": "^2.26.0",
+    "pubsub-js": "^1.8.0"
+  }
+}

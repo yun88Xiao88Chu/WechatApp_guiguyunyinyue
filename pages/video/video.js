@@ -9,6 +9,7 @@ Page({
     navId: '', // 导航的标识id
     videoList: [], // 视频列表数据
     triggered: false, // 标识下拉刷新是否被触发
+    videoId:'',
   },
 
   /**
@@ -36,7 +37,7 @@ Page({
     
     
   },
-  
+  //点击导航切换navId
   changeNavId(event){
     // 将str转换成number
     let navId = event.currentTarget.dataset.id>>>0;
@@ -1726,7 +1727,25 @@ Page({
       videoList
     })
   },
-
+  //视频播放.继续播放的回调
+  handlePlay(event){
+    // console.log("play")
+    let {id} = event.currentTarget
+    // this.videoContext && id !== this.vid && this.videoContext.stop()
+    // if(this.videoContext){
+    //   if(id !== this.vid){
+    //     this.videoContext.stop();
+    //   }
+    // }
+    
+    // this.vid = id
+    /* 更新videoId */
+    this.setData({
+      videoId:id
+    })
+    this.videoContext = wx.createVideoContext(id)
+    this.videoContext.play()
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -1773,6 +1792,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+      console.log('hhh');
+      return {
+        title:'自定义标题',
+        path:'/pages/video/video',
+        imageUrl:'/static/images/nvsheng.jpg'
+      }
   }
 })
